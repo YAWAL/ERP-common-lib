@@ -1,4 +1,4 @@
-package model
+package models
 
 // EmployeeAddress represents data about employees addresses stored in database
 type EmployeeAddress struct {
