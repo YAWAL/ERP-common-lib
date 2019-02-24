@@ -11,7 +11,7 @@ const (
 
 // Employee represents general data, related to all employees stored in database
 type Employee struct {
-	EmployeeId        int64     `json:"employee_id"  		gorm:"Column:employee_id;PRIMARY_KEY"`
+	EmployeeID        int64     `json:"employee_id"  		gorm:"Column:employee_id;PRIMARY_KEY"`
 	Name              string    `json:"name"         		gorm:"Column:name"`
 	LastName          string    `json:"last_name"			gorm:"Column:last_name"`
 	MiddleName        string    `json:"middle_name" 		gorm:"Column:middle_name"`

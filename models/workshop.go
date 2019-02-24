@@ -2,7 +2,7 @@ package models
 
 // Workshop represents data about workshops stored in database
 type Workshop struct {
-	WorkshopId   int
+	WorkshopID   int
 	WorkshopName string
-	ChairmanId   int64
+	ChairmanID   int64
 }
