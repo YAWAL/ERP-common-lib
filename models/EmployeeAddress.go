@@ -8,6 +8,6 @@ type EmployeeAddress struct {
 	ResidencePlace string `json:"residence_place"`
 	Street         string `json:"street"`
 	BuildingNum    string `json:"building_num"`
-	FlatNum        string `json:"flat_num"`
+	RoomNum        string `json:"room_num"`
 	Zip            string `json:"zip"`
 }
