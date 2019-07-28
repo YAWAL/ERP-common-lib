@@ -35,11 +35,11 @@ type EmployeeInfo struct {
 
 // EmployeeAddress represents data about employees addresses stored in database
 type EmployeeAddress struct {
-	ID             uuid.UUID `gorm:"address_id;PRIMARY_KEY"`
-	PhoneNum       string    `json:"phone_num,omitempty" gorm:"phone_num"`
-	ResidencePlace string    `json:"residence_place,omitempty" gorm:"residence_place"`
-	Street         string    `json:"street,omitempty" gorm:"street"`
-	BuildingNum    string    `json:"building_num,omitempty" gorm:"building_num"`
-	FlatNum        string    `json:"flat_num,omitempty" gorm:"flat_num"`
-	Zip            string    `json:"zip,omitempty" gorm:"zip"`
+	ID             uuid.UUID `gorm:"Column:address_id;PRIMARY_KEY"`
+	PhoneNum       string    `json:"phone_num,omitempty" 		gorm:"Column:phone_num"`
+	ResidencePlace string    `json:"residence_place,omitempty" 	gorm:"Column:residence_place"`
+	Street         string    `json:"street,omitempty" 			gorm:"Column:street"`
+	BuildingNum    string    `json:"building_num,omitempty" 	gorm:"Column:building_num"`
+	FlatNum        string    `json:"flat_num,omitempty" 		gorm:"Column:flat_num"`
+	Zip            string    `json:"zip,omitempty" 				gorm:"Column:zip"`
 }
