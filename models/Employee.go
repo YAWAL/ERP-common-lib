@@ -24,8 +24,7 @@ type Employee struct {
 
 // EmployeeInfo contains general info about employee
 type EmployeeInfo struct {
-	ID                int64           `gorm:"Column:employee_info_id;PRIMARY_KEY"`
-	EmployeeID        uuid.UUID       `json:"employee_id"  					gorm:"Column:employee_id;FOREIGN_KEY"`
+	ID                uuid.UUID       `gorm:"Column:employee_info_id;PRIMARY_KEY"`
 	EmployeeAddress   EmployeeAddress `json:"employee_address,omitempty"`
 	PassSeriesNum     string          `json:"pass_series_num,omitempty" 	gorm:"Column:pass_series_num"`
 	IdentificationNum string          `json:"identification_num,omitempty"	gorm:"Column:identification_num"`
@@ -36,8 +35,7 @@ type EmployeeInfo struct {
 
 // EmployeeAddress represents data about employees addresses stored in database
 type EmployeeAddress struct {
-	ID             int64     `gorm:"address_id;PRIMARY_KEY"`
-	EmployeeID     uuid.UUID `json:"employee_id,omitempty gorm:"employee_id;FOREIGN_KEY"`
+	ID             uuid.UUID `gorm:"address_id;PRIMARY_KEY"`
 	PhoneNum       string    `json:"phone_num,omitempty" gorm:"phone_num"`
 	ResidencePlace string    `json:"residence_place,omitempty" gorm:"residence_place"`
 	Street         string    `json:"street,omitempty" gorm:"street"`
