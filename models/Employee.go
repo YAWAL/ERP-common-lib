@@ -43,3 +43,13 @@ type EmployeeAddress struct {
 	FlatNum        string    `json:"flat_num,omitempty" 		gorm:"Column:flat_num"`
 	Zip            string    `json:"zip,omitempty" 				gorm:"Column:zip"`
 }
+
+// RenderEmployee contains data to be rendered on '/employees' endpoint
+type RenderEmployee struct {
+	Name       string    `json:"name,omitempty"         		gorm:"Column:name"`
+	LastName   string    `json:"last_name,omitempty"			gorm:"Column:last_name"`
+	MiddleName string    `json:"middle_name,omitempty" 		gorm:"Column:middle_name"`
+	Position   string    `json:"position,omitempty" 			gorm:"Column:position"`
+	IsQuit     bool      `json:"is_quit,omitempty" 			gorm:"Column:is_quit"`
+	JoinDate   time.Time `json:"join_date,omitempty" 			gorm:"Column:join_date"`
+}
