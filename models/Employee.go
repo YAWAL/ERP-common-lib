@@ -3,7 +3,7 @@ package models
 import (
 	"time"
 
-	"github.com/google/uuid"
+	"github.com/YAWAL/ERP-common-lib/database/uuid"
 )
 
 const (
