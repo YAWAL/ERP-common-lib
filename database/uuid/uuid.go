@@ -41,7 +41,7 @@ type Time int64
 // sequence, and the current time.  If the NodeID has not been set by SetNodeID
 // or SetNodeInterface then it will be set automatically.  If the NodeID cannot
 // be set NewUUID returns nil.  If clock sequence has not been set by
-// SetClockSequence then it will be set automatically.  If GetTime fails to
+// SetClockSequence then it will be set automatically.  If getTime fails to
 // return the current NewUUID returns nil and an error.
 //
 // In most cases, New should be used.
@@ -53,7 +53,7 @@ func New() (UUID, error) {
 	nodeMu.Unlock()
 
 	var uuid UUID
-	now, seq, err := GetTime()
+	now, seq, err := getTime()
 	if err != nil {
 		return uuid, err
 	}
@@ -113,18 +113,13 @@ func getHardwareInterface(name string) (string, []byte) {
 	return "", nil
 }
 
-// GetTime returns the current Time (100s of nanoseconds since 15 Oct 1582) and
+// getTime returns the current Time (100s of nanoseconds since 15 Oct 1582) and
 // clock sequence as well as adjusting the clock sequence as needed.  An error
 // is returned if the current time cannot be determined.
-func GetTime() (Time, uint16, error) {
+func getTime() (Time, uint16, error) {
 	defer timeMu.Unlock()
 	timeMu.Lock()
-	return getTime()
-}
-
-func getTime() (Time, uint16, error) {
 	t := timeNow()
-
 	// If we don't have a clock sequence already, set one.
 	if clockSeq == 0 {
 		setClockSequence(-1)
