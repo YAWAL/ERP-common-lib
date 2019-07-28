@@ -30,6 +30,8 @@ import (
 //
 //// A UUID is a 128 bit (16 byte) Universal Unique Identifier as defined in RFC 4122.
 //type UUID [16]byte
+type UUID [16]byte
+
 //
 //// A Time represents a time as the number of 100's of nanoseconds since 15 Oct 1582.
 //type Time int64
