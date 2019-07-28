@@ -3,7 +3,6 @@ package uuid
 
 import (
 	"crypto/rand"
-	"fmt"
 	"io"
 )
 
@@ -29,8 +28,9 @@ import (
 //)
 //
 //// A UUID is a 128 bit (16 byte) Universal Unique Identifier as defined in RFC 4122.
-//type UUID [16]byte
-type UUID string
+type UUID []byte
+
+//type UUID string
 
 //
 //// A Time represents a time as the number of 100's of nanoseconds since 15 Oct 1582.
@@ -155,15 +155,16 @@ type UUID string
 //}
 
 // newUUID generates a random UUID according to RFC 4122
-func New() (string, error) {
+func New() (UUID, error) {
 	uuid := make([]byte, 16)
 	n, err := io.ReadFull(rand.Reader, uuid)
 	if n != len(uuid) || err != nil {
-		return "", err
+		return uuid, err
 	}
 	// variant bits; see section 4.1.1
 	uuid[8] = uuid[8]&^0xc0 | 0x80
 	// version 4 (pseudo-random); see section 4.1.3
 	uuid[6] = uuid[6]&^0xf0 | 0x40
-	return fmt.Sprintf("%x-%x-%x-%x-%x", uuid[0:4], uuid[4:6], uuid[6:8], uuid[8:10], uuid[10:]), nil
+	return uuid, nil
+	//return fmt.Sprintf("%x-%x-%x-%x-%x", uuid[0:4], uuid[4:6], uuid[6:8], uuid[8:10], uuid[10:]), nil
 }
