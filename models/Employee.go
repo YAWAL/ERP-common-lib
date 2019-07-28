@@ -48,8 +48,22 @@ type EmployeeAddress struct {
 type RenderEmployee struct {
 	Name       string    `json:"name,omitempty"         		gorm:"Column:name"`
 	LastName   string    `json:"last_name,omitempty"			gorm:"Column:last_name"`
-	MiddleName string    `json:"middle_name,omitempty" 		gorm:"Column:middle_name"`
+	MiddleName string    `json:"middle_name,omitempty" 			gorm:"Column:middle_name"`
 	Position   string    `json:"position,omitempty" 			gorm:"Column:position"`
-	IsQuit     bool      `json:"is_quit,omitempty" 			gorm:"Column:is_quit"`
+	IsQuit     bool      `json:"is_quit,omitempty" 				gorm:"Column:is_quit"`
 	JoinDate   time.Time `json:"join_date,omitempty" 			gorm:"Column:join_date"`
+}
+
+func PrepareRenderEmployee(employees []Employee) (renderEmployees []RenderEmployee) {
+	for _, empl := range employees {
+		renderEmployees = append(renderEmployees, RenderEmployee{
+			Name:       empl.Name,
+			LastName:   empl.LastName,
+			MiddleName: empl.MiddleName,
+			Position:   empl.Position,
+			IsQuit:     empl.IsQuit,
+			JoinDate:   empl.EmployeeInfo.JoinDate,
+		})
+	}
+	return renderEmployees
 }
