@@ -13,7 +13,7 @@ const (
 
 // Employee represents general data, related to all employees stored in database
 type Employee struct {
-	ID              primitive.ObjectID `json:"id"                         bson:"_id"`
+	ID              primitive.ObjectID `json:"id,omitempty"               bson:"_id"`
 	Name            string             `json:"name,omitempty"             bson:"name"`
 	LastName        string             `json:"last_name,omitempty"        bson:"last_name"`
 	MiddleName      string             `json:"middle_name,omitempty"      bson:"middle_name"`
