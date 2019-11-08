@@ -27,7 +27,7 @@ type EmployeeInfo struct {
 	Position          string    `json:"position,omitempty"           bson:"position"`
 	PassSeriesNum     string    `json:"pass_series_num,omitempty"    bson:"pass_series_num"`
 	IdentificationNum string    `json:"identification_num,omitempty" bson:"identification_num"`
-	PhoneNums         []string  `json:"phone_nums,omitempty"         bson:"phone_nums"`
+	PhoneNums         PhoneNums `json:"phone_nums,omitempty"         bson:"phone_nums"`
 	Email             string    `json:"e_mail,omitempty"             bson:"e_mail"`
 	BirthDate         time.Time `json:"birth_date,omitempty"         bson:"birth_date"`
 	JoinDate          time.Time `json:"join_date,omitempty"          bson:"join_date"`
@@ -41,4 +41,11 @@ type EmployeeAddress struct {
 	BuildingNum    string `json:"building_num,omitempty"    bson:"building_num"`
 	FlatNum        string `json:"flat_num,omitempty"        bson:"flat_num"`
 	Zip            string `json:"zip,omitempty"             bson:"zip"`
+}
+
+// PhoneNums holds information about employee's phone numbers
+type PhoneNums struct {
+	HomePhone   string `json:"home_phone,omitempty"   bson:"home_phone"`
+	WorkPhone   string `json:"work_phone,omitempty"   bson:"work_phone"`
+	MobilePhone string `json:"mobile_phone,omitempty" bson:"mobile_phone"`
 }
