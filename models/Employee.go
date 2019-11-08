@@ -28,6 +28,7 @@ type EmployeeInfo struct {
 	PassSeriesNum     string    `json:"pass_series_num,omitempty"    bson:"pass_series_num"`
 	IdentificationNum string    `json:"identification_num,omitempty" bson:"identification_num"`
 	PhoneNums         []string  `json:"phone_nums,omitempty"         bson:"phone_nums"`
+	Email             string    `json:"e_mail,omitempty"             bson:"e_mail"`
 	BirthDate         time.Time `json:"birth_date,omitempty"         bson:"birth_date"`
 	JoinDate          time.Time `json:"join_date,omitempty"          bson:"join_date"`
 	QuitDate          time.Time `json:"quit_date,omitempty"          bson:"quit_date"`
