@@ -1,3 +1,3 @@
-####ERP-common-lib
+# ERP-common-lib
 
-Contains general models for ERP project
+Contains general models, functionality for ERP project
